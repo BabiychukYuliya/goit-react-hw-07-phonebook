@@ -2,13 +2,14 @@ import PropTypes from 'prop-types';
 import { List } from './Phonebook.styled';
 import ContactItem from '../ContactItem/ContactItem';
 import { useDispatch, useSelector } from 'react-redux';
-import { deleteContact } from '../../redux/contactSlice';
+import { deleteContact } from '../../redux/operations';
+import { getContacts, getFilter } from 'redux/selectors';
 
 export const ContactList = () => {
   const dispatch = useDispatch();
 
-  const contacts = useSelector(state => state.contacts);
-  const filter = useSelector(state => state.filter);
+  const contacts = useSelector(getContacts);
+  const filter = useSelector(getFilter);
 
   return (
     <List>

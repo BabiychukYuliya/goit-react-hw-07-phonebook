@@ -2,10 +2,11 @@ import PropTypes from 'prop-types';
 import { Input } from './Filter.styled';
 import { useSelector, useDispatch } from 'react-redux';
 import { onChangeFilter } from 'redux/filterSlice';
+import { getFilter } from 'redux/selectors';
 
 const Filter = () => {
   const dispatch = useDispatch();
-  const filter = useSelector(state => state.filter);
+  const filter = useSelector(getFilter);
 
   return (
     <label>
